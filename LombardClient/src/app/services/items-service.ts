@@ -20,4 +20,8 @@ export class ItemsService {
         let url = 'items/'
         return this.baseService.getPaged(url, page, itemsPerPage);
     }
+
+    public saveNewItem(item: Item): Observable<any> {
+        return this.baseService.post("/item", item);
+    }
 }
