@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class ServiceBase {
-    BASE_URL = 'http://localhost:64905/'
+    BASE_URL = 'http://localhost:5000/'
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     config = {
         headers: {
