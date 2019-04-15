@@ -10,7 +10,7 @@ export class ServiceBase {
 
     constructor(private http: HttpClient) { }
 
-    config = {
+    private config = {
         headers: {
             'Content-Type': 'application/json'
         }
