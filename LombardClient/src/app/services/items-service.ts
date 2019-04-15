@@ -14,4 +14,8 @@ export class ItemsService {
     public get(id: number): Observable<Item> {
         return this.baseService.get(id.toString());
     }
+
+    public getAll(): Observable<Item[]> {
+        return this.baseService.get('/items');
+    }
 }

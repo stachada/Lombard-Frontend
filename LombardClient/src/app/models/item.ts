@@ -1,7 +1,7 @@
 export interface Item {
-    ItemId: number;
-    Price: number;
-    Name: number;
-    Quantity: number;
-    ProductCategory: number;
+    itemId: number;
+    price: number;
+    name: number;
+    quantity: number;
+    productCategory: number;
 }
