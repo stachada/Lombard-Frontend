@@ -8,6 +8,7 @@
         <th scope="col">Name</th>
         <th scope="col">Quantity</th>
         <th scope="col">Price</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +18,9 @@
         <td>{{item.name}}</td>
         <td>{{item.quantity}}</td>
         <td>{{item.price | currency }}</td>
+        <td>
+            <a class="btn btn-primary" [routerLink]="['/transaction/item/'] + item.itemId">Create Transaction</a>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -27,6 +31,7 @@
       nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
     </pagination>
   </div>
+
+  <app-item-form></app-item-form>
 </div>
 
-<app-item-form></app-item-form>

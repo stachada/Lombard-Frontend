@@ -6,11 +6,9 @@ import { TransactionHandleComponent } from './components/transactions/transactio
 
 const routes: Routes = [
   { path: 'transaction', component: TransactionListComponent },
-  { path: 'transaction/:id', component: TransactionHandleComponent }
+  { path: 'transaction/item/:id', component: TransactionHandleComponent },
+  { path: 'items', component: ItemsListComponent }
 ];
-  { path: "items", component: ItemsListComponent },
-  { path: 'transaction', component: TransactionListComponent },
-]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

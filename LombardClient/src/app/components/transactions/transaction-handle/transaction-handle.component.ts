@@ -3,7 +3,7 @@ import { Item } from 'src/app/models/item';
 import { Transaction } from 'src/app/models/transaction';
 import { TransacitonsService } from '../../../services/transactions-service';
 import { ItemsService } from 'src/app/services/items-service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaction-handle',
@@ -14,7 +14,10 @@ export class TransactionHandleComponent implements OnInit {
   item: Item = <Item>{};
   transaction: Transaction = <Transaction>{};
 
-  constructor(private transactionsService: TransacitonsService, private itemsService: ItemsService, private route: ActivatedRoute) { }
+  constructor(private transactionsService: TransacitonsService, 
+    private itemsService: ItemsService, 
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -22,10 +25,17 @@ export class TransactionHandleComponent implements OnInit {
         .subscribe(i => {
           this.item = i;
           this.transaction.itemId = this.item.itemId;
-          console.log(this.item);
-          console.log(this.transaction);
         });
     });
   }
 
+  sell() {
+    this.transactionsService.sell(this.transaction)
+      .subscribe(data => this.router.navigate(['/transaction']));
+  }
+
+  buy() {
+    this.transactionsService.buy(this.transaction)
+      .subscribe(data => this.router.navigate(['/transaction']));
+  }
 }

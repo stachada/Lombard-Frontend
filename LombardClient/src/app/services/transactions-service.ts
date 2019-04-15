@@ -31,4 +31,16 @@ export class TransacitonsService {
         let url = 'transactions/' + transaction.transactionId.toString();
         return this.baseService.put(url, transaction);
     }
+
+    public sell(transaction: Transaction)
+    {
+        let url = 'transactions/sell';
+        return this.baseService.post(url, transaction);
+    }
+
+    public buy(transaction: Transaction)
+    {
+        let url = 'transactions/buy';
+        return this.baseService.post(url, transaction);
+    }
 }
