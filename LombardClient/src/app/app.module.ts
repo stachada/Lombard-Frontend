@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { PaginationModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { ItemFormComponent } from './components/items/item-form/item-form.compon
     AppRoutingModule,
     HttpClientModule,
     PaginationModule.forRoot(),
+    ModalModule.forRoot(),
     FormsModule
   ],
   providers: [],

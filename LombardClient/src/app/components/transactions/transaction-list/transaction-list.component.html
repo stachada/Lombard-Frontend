@@ -10,6 +10,7 @@
         <th scope="col">Transaction Type</th>
         <th scope="col">Price</th>
         <th scope="col">Transaction Date</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -18,18 +19,84 @@
         <td>{{ transaction.itemId }}</td>
         <td>{{ transaction.customerId }}</td>
         <td>{{ transaction.quantity }}</td>
-        <td>{{ transaction.quantity < 0 ? 'sales' : 'purchase' }}</td>
-
+        <td>{{ transaction.quantity < 0 ? "sales" : "purchase" }}</td>
         <td>{{ transaction.price | currency }}</td>
-        <td>{{ transaction.transactionDate | date: 'dd-MM-yyyy HH:mm' }}</td>
+        <td>{{ transaction.transactionDate | date: "dd-MM-yyyy HH:mm" }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="openUpdateTransactionModal(transaction)">
+            Update
+          </button>
+          <button class="btn btn-danger" (click)="openDeleteTransactionModal(deleteTemplate,transaction.transactionId)">
+            Delete
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
 
   <div class="d-flex justify-content-center">
-    <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
-      [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
-      nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+    <pagination
+      [boundaryLinks]="true"
+      [totalItems]="pagination.totalItems"
+      [itemsPerPage]="pagination.itemsPerPage"
+      [(ngModel)]="pagination.currentPage"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      firstText="&laquo;"
+      lastText="&raquo;"
+    >
     </pagination>
   </div>
 </div>
+
+<ng-template #deleteTemplate>
+  <div class="modal-body text-center">
+    <p>Are you sure you want to delete?</p>
+    <button type="button" class="btn btn-default" (click)="confirmDeleteTransaction()">
+      Yes
+    </button>
+    <button type="button" class="btn btn-primary" (click)="cancelDeleteTransaction()">
+      No
+    </button>
+  </div>
+</ng-template>
+
+<div bsModal #updateModal="bs-modal" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 id="dialog-sizes-name1" class="modal-title pull-left">Update Transaction with Id: {{ transactionToUpdate.transactionId }}</h4>
+        <button type="button" class="close pull-right" (click)="updateModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="transactionToUpdate.quantity" step="0.01" class="form-control" id="quantity" aria-describedby="quantity" placeholder="Enter quantity">
+                </div>
+                <div class="form-group">
+                  <label for="price">Price</label>
+                  <input type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="transactionToUpdate.price" step="0.01" class="form-control" id="price" placeholder="Enter Price">
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="updateTransaction()">Submit</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #updateTemplate>
+    <div class="modal-body text-center">
+      
+      <button type="button" class="btn btn-default" (click)="confirm()">
+        Yes
+      </button>
+      <button type="button" class="btn btn-primary" (click)="decline()">
+        No
+      </button>
+    </div>
+  </ng-template>
