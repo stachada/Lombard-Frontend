@@ -1,8 +1,8 @@
 export interface Transaction {
-    TransactionId: number;
-    ItemId: number;
-    CustomerId: number;
-    Quantity: number;
-    Price: number;
-    TransactionDate: Date;
+    transactionId: number;
+    itemId: number;
+    customerId: number;
+    quantity: number;
+    price: number;
+    transactionDate: Date;
 }
