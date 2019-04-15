@@ -22,5 +22,17 @@ export class TransacitonsService {
         return this.baseService.getPaged(url, page, itemsPerPage);
     }
 
+<<<<<<< HEAD
 
+=======
+    public deleteTransaction(id): Observable<any> {
+        let url = 'transactions/' + id.toString();
+        return this.baseService.delete(url);
+    }
+
+    public updateTransaction(transaction: Transaction) {
+        let url = 'transactions/' + transaction.transactionId.toString();
+        return this.baseService.put(url, transaction);
+    }
+>>>>>>> Adam
 }
