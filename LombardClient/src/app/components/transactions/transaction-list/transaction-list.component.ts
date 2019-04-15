@@ -12,14 +12,14 @@ import { PaginationComponent } from 'ngx-bootstrap';
 export class TransactionListComponent implements OnInit {
   transactions: Transaction[];
   pagination: Pagination = <Pagination>{
-    itemsPerPage: 2,
+    itemsPerPage: 4,
     currentPage: 1,
   }
 
   constructor(private service: TransacitonsService) {  }
 
   ngOnInit() {
-    this.service.getTransactions(1, 2)
+    this.service.getTransactions(1, 4)
       .subscribe((data: PaginatedResult<Transaction[]>) => {
         this.transactions = data.result;
         this.pagination = data.pagination;
@@ -29,11 +29,10 @@ export class TransactionListComponent implements OnInit {
   pageChanged(event: any): void {
     this.pagination.currentPage = event.page;
     this.loadTransactions(this.pagination.currentPage);
-    console.log(this.transactions);
   }
 
   loadTransactions(currentPage: number) {
-    this.service.getTransactions(currentPage, 2)
+    this.service.getTransactions(currentPage, 4)
       .subscribe((data: PaginatedResult<Transaction[]>) => {
         this.transactions = data.result;
         this.pagination = data.pagination;

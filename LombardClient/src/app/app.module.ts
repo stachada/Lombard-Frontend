@@ -10,13 +10,15 @@ import { ItemFormComponent } from './components/item-form/item-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TransactionComponent } from './components/transactions/transaction-details/transaction.component';
 import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemFormComponent,
     TransactionComponent,
-    TransactionListComponent
+    TransactionListComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
