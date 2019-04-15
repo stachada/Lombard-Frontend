@@ -1,0 +1,9 @@
+diff a/LombardClient/src/app/app.component.html b/LombardClient/src/app/app.component.html	(rejected hunks)
+@@ -9,4 +9,5 @@
+ 
+ <router-outlet></router-outlet>
+ <app-item-form></app-item-form>
+-<app-items></app-items>
+\ No newline at end of file
++<app-items></app-items>
++<app-category-list></app-category-list>
