@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TransacitonsService } from '../../../services/transactions-service';
 import { Transaction } from '../../../models/transaction';
 import { Pagination, PaginatedResult } from '../../../models/pagination';
-import { PaginationComponent } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-transaction-list',
@@ -16,7 +15,7 @@ export class TransactionListComponent implements OnInit {
     currentPage: 1,
   }
 
-  constructor(private service: TransacitonsService) {  }
+  constructor(private service: TransacitonsService) { }
 
   ngOnInit() {
     this.service.getTransactions(1, 4)
