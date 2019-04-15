@@ -22,6 +22,6 @@ export class ItemsService {
     }
 
     public saveNewItem(item: Item): Observable<any> {
-        return this.baseService.post("/item", item);
+        return this.baseService.post("item/", item);
     }
 }
