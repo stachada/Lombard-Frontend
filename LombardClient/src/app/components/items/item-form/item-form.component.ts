@@ -9,6 +9,7 @@ import { Item } from 'src/app/models/item';
 })
 export class ItemFormComponent {
 
+  itemCategory: ItemCategory.Different
   newItem: Item = <Item>{};
 
   constructor(private itemService: ItemsService) { }
