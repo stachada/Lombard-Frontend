@@ -6,11 +6,11 @@ import { HttpParams, HttpResponse } from '@angular/common/http';
 import { PaginatedResult } from '../models/pagination';
 
 @Injectable({
-        providedIn: 'root'
+    providedIn: 'root'
 })
 export class TransacitonsService {
 
-    constructor(private baseService: ServiceBase) {}
+    constructor(private baseService: ServiceBase) { }
 
     public getTransaction(id: number): Observable<Transaction> {
         let url = 'transactions/' + id.toString();
@@ -22,5 +22,13 @@ export class TransacitonsService {
         return this.baseService.getPaged(url, page, itemsPerPage);
     }
 
-    
+    public deleteTransaction(id): Observable<any> {
+        let url = 'transactions/' + id.toString();
+        return this.baseService.delete(url);
+    }
+
+    public updateTransaction(transaction: Transaction) {
+        let url = 'transactions/' + transaction.transactionId.toString();
+        return this.baseService.put(url, transaction);
+    }
 }

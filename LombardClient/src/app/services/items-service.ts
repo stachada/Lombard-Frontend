@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ServiceBase } from './service-base';
 import { Item } from '../models/item';
+import { PaginatedResult } from '../models/pagination';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,12 @@ export class ItemsService {
         return this.baseService.get(id.toString());
     }
 
-    public getAll(): Observable<Item[]> {
-        return this.baseService.get('/items');
+    public getAll(page?, itemsPerPage?): Observable<PaginatedResult<Item[]>> {
+        let url = 'items/'
+        return this.baseService.getPaged(url, page, itemsPerPage);
+    }
+
+    public saveNewItem(item: Item): Observable<any> {
+        return this.baseService.post("item/", item);
     }
 }

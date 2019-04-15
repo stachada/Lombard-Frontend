@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Item List</h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ItemId</th>
+        <th scope="col">Category</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items" class="tr">
+        <td>{{item.itemId}}</td>
+        <td>{{item.productCategory}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.price | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center">
+    <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+      [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" previousText="&lsaquo;"
+      nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+    </pagination>
+  </div>
+</div>
+
+<app-item-form></app-item-form>
