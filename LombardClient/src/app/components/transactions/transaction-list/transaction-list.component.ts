@@ -43,8 +43,6 @@ export class TransactionListComponent implements OnInit {
       });
   }
 
-  
-
   deleteTransaction(id: number) {
     console.log(id);
   }

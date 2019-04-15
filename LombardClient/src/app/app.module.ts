@@ -13,6 +13,7 @@ import { TransactionComponent } from './components/transactions/transaction-deta
 import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ItemsComponent } from './components/items/items.component';
+import { TransactionHandleComponent } from './components/transactions/transaction-handle/transaction-handle.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ItemsComponent } from './components/items/items.component';
     TransactionComponent,
     TransactionListComponent,
     NavComponent,
-    ItemsComponent
+    ItemsComponent,
+    TransactionHandleComponent
   ],
   imports: [
     BrowserModule,

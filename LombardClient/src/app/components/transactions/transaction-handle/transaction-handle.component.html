@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Create Transaction</h1>
+  <div class="row">
+    <div class="col-6">
+        <div class="card" style="width: 25rem;">
+            <div class="card-header">
+              <strong>Item</strong>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Id:</strong> {{ item.itemId }}</li>
+              <li class="list-group-item"><strong>Price:</strong> {{ item.price | currency }}</li>
+              <li class="list-group-item"><strong>Name:</strong> {{ item.name }}</li>
+              <li class="list-group-item"><strong>Quantity:</strong> {{ item.quantity }}</li>
+              <li class="list-group-item"><strong>Product Category:</strong> {{ item.productCategory }}</li>
+            </ul>
+          </div>
+    </div>
+    <div class="col-6">
+        <div class="card" style="width: 25rem;">
+            <div class="card-header">
+              <strong>Transaction Details</strong>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="transaction.quantity" step="0.01" class="form-control" id="quantity" aria-describedby="quantity" placeholder="Enter quantity">
+                  </div>
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="transaction.price" step="0.01" class="form-control" id="price" placeholder="Enter Price">
+                  </div>
+                  <button type="submit" class="btn btn-primary" (click)="sell()">Sell</button>
+                  <button type="submit" class="btn btn-primary" (click)="buy()">Buy</button>
+            </form>
+          </div>
+    </div>
+  </div>
+</div>
