@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class ServiceBase {
     private readonly BASE_URL = 'http://localhost:5000/api/'
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     private config = {
         headers: {

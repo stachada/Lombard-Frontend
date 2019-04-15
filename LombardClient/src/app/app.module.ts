@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TransactionComponent } from './components/transactions/transaction-details/transaction.component';
 import { TransactionListComponent } from './components/transactions/transaction-list/transaction-list.component';
 import { NavComponent } from './components/nav/nav.component';
+import { ItemsComponent } from './components/items/items.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavComponent } from './components/nav/nav.component';
     ItemFormComponent,
     TransactionComponent,
     TransactionListComponent,
-    NavComponent
+    NavComponent,
+    ItemsComponent
   ],
   imports: [
     BrowserModule,
