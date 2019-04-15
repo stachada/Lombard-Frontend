@@ -1,5 +1,22 @@
-<ul class="list-group">
-  <li *ngFor="let item of items" class="list-group-item">
-    {{item.price}}
-  </li>
-</ul>
+<div class="table-responsive">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ItemId</th>
+        <th scope="col">Category</th>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items" class="tr">
+        <th scope="row">{{item.itemId}}</th>
+        <td>{{item.productCategory}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.quantity}}</td>
+        <td>$ {{item.price}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
