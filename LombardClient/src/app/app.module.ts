@@ -21,7 +21,8 @@ import { CategoryListComponent} from './components/category-list/category-list.c
     TransactionComponent,
     TransactionListComponent,
     NavComponent,
-    ItemsComponent
+    ItemsComponent,
+    CategoryListComponent
   ],
   imports: [
     BrowserModule,

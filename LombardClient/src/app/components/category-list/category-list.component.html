@@ -1,5 +1,20 @@
-<ul class="list-group">
-  <li *ngFor="let category of categories" class="list-group-item">
-    {{category.productCategory}}
-  </li>
-</ul>
+<div class = "container">
+<h1>
+  Categories List
+</h1>
+<table class = "table">
+<thead class = "thead-dark">
+    <tr>
+      <th scope="col">Category Name:</th>
+      <th scope="col">Quantity</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{category.productCategory}}</td>
+      
+      <td>{{category.quantity}}</td>
+    </tr>
+</tbody>
+</table>
+</div>  

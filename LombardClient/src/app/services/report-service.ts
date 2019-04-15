@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ServiceBase } from './servicebase';
+import { ServiceBase } from './service-base';
 import { CategoryReportItem } from '../models/category-report-item';
 
 @Injectable({
