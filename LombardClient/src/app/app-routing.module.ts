@@ -6,16 +6,12 @@ import { CategoryListComponent } from './components/category-list/category-list.
 import { TurnoverRaportComponent } from './components/turnover-raport/turnover-raport.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
   { path: 'transaction', component: TransactionListComponent },
   { path: 'category-list', component: CategoryListComponent },
-  { path: 'turnover', component: TurnoverRaportComponent }
-];
-=======
-  { path: "items", component: ItemsListComponent },
+  { path: 'turnover', component: TurnoverRaportComponent },
+  { path: 'items', component: ItemsListComponent },
   { path: 'transaction', component: TransactionListComponent },
-]
->>>>>>> master
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
