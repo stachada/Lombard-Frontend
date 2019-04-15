@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Transaction } from '../models/transaction';
 import { Injectable } from '@angular/core';
-import { ServiceBase } from './serviceBase';
+import { ServiceBase } from './service-base';
 import { HttpParams, HttpResponse } from '@angular/common/http';
 import { PaginatedResult } from '../models/pagination';
 
