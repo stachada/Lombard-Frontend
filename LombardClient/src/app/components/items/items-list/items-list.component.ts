@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Item } from 'src/app/models/item';
 import { ItemsService } from 'src/app/services/items-service';
 import { Pagination, PaginatedResult } from 'src/app/models/pagination';
+import { ModalDirective, BsModalRef, BsModalService } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-items',
@@ -9,14 +10,17 @@ import { Pagination, PaginatedResult } from 'src/app/models/pagination';
   styleUrls: ['./items-list.component.scss']
 })
 export class ItemsListComponent implements OnInit {
-
+  @ViewChild('updateModal') updateModal: ModalDirective;
   items: Item[] = [];
   pagination: Pagination = <Pagination>{
     itemsPerPage: 20,
     currentPage: 1,
   }
+  modalRef: BsModalRef;
+  idToDelete: number;
+  transactionToUpdate: Item = <Item>{};
 
-  constructor(private itemService: ItemsService) { }
+  constructor(private itemService: ItemsService, private modalService: BsModalService) { }
 
   ngOnInit() {
     this.itemService.getAll(1, 20)
