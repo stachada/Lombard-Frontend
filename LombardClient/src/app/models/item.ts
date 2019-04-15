@@ -3,5 +3,5 @@ export interface Item {
     price: number;
     name: number;
     quantity: number;
-    productCategory: number;
+    productCategory: ItemCategory;
 }
