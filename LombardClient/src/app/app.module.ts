@@ -13,6 +13,7 @@ import { TransactionListComponent } from './components/transactions/transaction-
 import { NavComponent } from './components/nav/nav.component';
 import { ItemsComponent } from './components/items/items.component';
 import { CategoryListComponent} from './components/category-list/category-list.component';
+import { TurnoverRaportComponent } from './components/turnover-raport/turnover-raport.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CategoryListComponent} from './components/category-list/category-list.c
     TransactionListComponent,
     NavComponent,
     ItemsComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    TurnoverRaportComponent
   ],
   imports: [
     BrowserModule,

@@ -12,6 +12,7 @@ export class CategoryListComponent implements OnInit {
   categories: CategoryReportItem[] = [];
   category: CategoryReportItem = <CategoryReportItem>{};
 
+
   constructor(private reportService: ReportService) { }
 
   ngOnInit() {

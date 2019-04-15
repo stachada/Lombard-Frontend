@@ -18,4 +18,8 @@ export class ReportService {
     public getAllCategories(): Observable<CategoryReportItem[]> {
         return this.baseService.get('/reports/categories');
     }
+
+    public getTurnover(StartDate: Date, EndDate: Date): Observable<number> {
+        return this.baseService.get('/reports/turnover?StartDate=' + StartDate.toString() + '&EndDate=' + EndDate.toString());
+    }
 }
