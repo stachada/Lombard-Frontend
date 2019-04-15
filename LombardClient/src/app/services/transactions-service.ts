@@ -22,9 +22,6 @@ export class TransacitonsService {
         return this.baseService.getPaged(url, page, itemsPerPage);
     }
 
-<<<<<<< HEAD
-
-=======
     public deleteTransaction(id): Observable<any> {
         let url = 'transactions/' + id.toString();
         return this.baseService.delete(url);
@@ -34,5 +31,4 @@ export class TransacitonsService {
         let url = 'transactions/' + transaction.transactionId.toString();
         return this.baseService.put(url, transaction);
     }
->>>>>>> Adam
 }
