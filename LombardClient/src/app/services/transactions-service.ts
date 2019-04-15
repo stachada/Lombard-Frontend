@@ -1,25 +1,20 @@
 import { Observable } from 'rxjs';
 import { Transaction } from '../models/transaction';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
+import { ServiceBase } from './serviceBase';
 
-// @Injectable({
-//         providedIn: 'root'
-// })
-// // export class TransacitonsService {
-// //     baseUrl: string = environment.apiUrl;
+@Injectable({
+        providedIn: 'root'
+})
+export class TransacitonsService {
 
-// //     constructor(private http: HttpClient) {}
+    constructor(private baseService: ServiceBase) {}
 
-// //     // getTransaction(): Observable<Transaction[]> {
-// //     //     this.http.get(this.baseUrl + 'api/transactions/1')
-            
-// //     // }
+    // public get(): Observable<Transaction[]> {
+    //     return this.baseService.get('/');
+    // }
 
-// //     // Service base z base Url:
-// //     // config dla header -> application/json -> content type
-// //     // get(relativeUlr: string).
-
-// //     // post(relativeUrl: string, object)
-// // }
+    public get(id: number): Observable<Transaction> {
+        return this.baseService.get(id.toString());
+    }
+}

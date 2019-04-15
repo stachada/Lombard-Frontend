@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class ServiceBase {
-    BASE_URL = 'http://localhost:64905/'
+    private BASE_URL = 'http://localhost:64905/'
 
     constructor(private http: HttpClient) {}
 
-    config = {
+    private config = {
         headers: {
             'Content-Type': 'application/json'
         }
