@@ -15,6 +15,7 @@ import { TurnoverRaportComponent } from './components/turnover-raport/turnover-r
 import { TransactionHandleComponent } from './components/transactions/transaction-handle/transaction-handle.component';
 import { ItemsListComponent } from './components/items/items-list/items-list.component';
 import { ItemFormComponent } from './components/items/item-form/item-form.component';
+import { ProfitRaportComponent } from './components/profit-raport/profit-raport.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import { ItemFormComponent } from './components/items/item-form/item-form.compon
     NavComponent,
     CategoryListComponent,
     TurnoverRaportComponent,
-    TransactionHandleComponent,
-    ItemsListComponent
+    ItemsListComponent,
+    ProfitRaportComponent,
+    TransactionHandleComponent
   ],
   imports: [
     BrowserModule,
