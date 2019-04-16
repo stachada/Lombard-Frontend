@@ -3,6 +3,7 @@ import { TransacitonsService } from '../../../services/transactions-service';
 import { Transaction } from '../../../models/transaction';
 import { Pagination, PaginatedResult } from '../../../models/pagination';
 import { BsModalRef, BsModalService, ModalDirective } from 'ngx-bootstrap';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-transaction-list',
@@ -27,7 +28,10 @@ export class TransactionListComponent implements OnInit {
       .subscribe((data: PaginatedResult<Transaction[]>) => {
         this.transactions = data.result;
         this.pagination = data.pagination;
-      });
+      }, ((error: HttpErrorResponse) => {
+        error.message;
+        console.log(error.message);
+      }));
   }
 
   pageChanged(event: any): void {
@@ -40,10 +44,12 @@ export class TransactionListComponent implements OnInit {
       .subscribe((data: PaginatedResult<Transaction[]>) => {
         this.transactions = data.result;
         this.pagination = data.pagination;
-      });
+      }, ((error: HttpErrorResponse) => {
+        error.message;
+        if (error.status === 404) { this.transactions = []; this.pagination.totalPages = 0; }
+        console.log(error.error);
+      }));
   }
-
-  
 
   deleteTransaction(id: number) {
     console.log(id);
@@ -56,7 +62,10 @@ export class TransactionListComponent implements OnInit {
 
   confirmDeleteTransaction(): void {
     this.service.deleteTransaction(this.idToDelete)
-      .subscribe(x => this.loadTransactions(this.pagination.currentPage));
+      .subscribe(x => this.loadTransactions(this.pagination.currentPage),
+        ((error: HttpErrorResponse) => {
+          console.log(error.message);
+        }));
     this.modalRef.hide();
   }
  

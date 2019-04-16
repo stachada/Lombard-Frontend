@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ItemsService } from 'src/app/services/items-service';
 import { Item } from 'src/app/models/item';
+import { ItemCategory } from 'src/app/models/ItemCategory';
+import { CategoryListComponent } from '../../category-list/category-list.component';
 
 @Component({
   selector: 'app-item-form',
@@ -9,14 +11,17 @@ import { Item } from 'src/app/models/item';
 })
 export class ItemFormComponent {
 
-  itemCategory: ItemCategory.Different
+  keys = Object.keys(ItemCategory).filter(k => typeof ItemCategory[k as any] === "number");
+  @Input() parent: CategoryListComponent
   newItem: Item = <Item>{};
 
-  constructor(private itemService: ItemsService) { }
+  constructor(private itemService: ItemsService) {
+    console.log(this.keys);
+  }
 
   public saveNewItem() {
     this.itemService
       .saveNewItem(this.newItem)
-      .subscribe(x => x);
+      .subscribe(x => this.parent.ngOnInit());
   }
 }

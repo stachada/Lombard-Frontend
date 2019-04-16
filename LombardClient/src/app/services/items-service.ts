@@ -13,7 +13,8 @@ export class ItemsService {
     constructor(private baseService: ServiceBase) { }
 
     public get(id: number): Observable<Item> {
-        return this.baseService.get(id.toString());
+        let url = 'items/' + id.toString();
+        return this.baseService.get(url);
     }
 
     public getAll(page?, itemsPerPage?): Observable<PaginatedResult<Item[]>> {

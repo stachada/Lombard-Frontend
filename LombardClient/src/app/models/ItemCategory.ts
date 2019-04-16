@@ -1,4 +1,4 @@
-enum ItemCategory {
+export enum ItemCategory {
     Electronics,
     Books,
     Different,
@@ -7,4 +7,4 @@ enum ItemCategory {
     Automotive,
     Goods,
     Clothes
-}
+};
