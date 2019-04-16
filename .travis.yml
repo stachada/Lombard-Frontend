@@ -13,5 +13,6 @@ before_script:
 
 script:
 - cd ./LombardClient/
+- npm install
 - ng lint
 - ng build --prod
