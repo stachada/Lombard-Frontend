@@ -17,8 +17,7 @@
   <div class="form-group">
     <label for="Category">Category</label>
     <select class="form-control" id="itemCategory" [(ngModel)]="newItem.productCategory" name="productCategory">
-      <!-- <option *ngFor="let category of itemCategory" [ngValue]="category">{{itemCategory}}</option> -->
-      <option>{{itemCategory}}</option>
+      <option *ngFor="let category of keys" [ngValue]="category">{{category}}</option>
     </select>
   </div>
   <button type="submit" class="btn btn-primary" (click)="saveNewItem()">Add</button>
