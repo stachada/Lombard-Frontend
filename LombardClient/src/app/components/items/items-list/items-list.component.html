@@ -19,7 +19,7 @@
         <td>{{item.quantity}}</td>
         <td>{{item.price | currency }}</td>
         <td>
-            <a class="btn btn-primary" [routerLink]="['/transaction/item/'] + item.itemId">Create Transaction</a>
+          <a class="btn btn-primary" [routerLink]="['/transaction/item/'] + item.itemId">Create Transaction</a>
         </td>
       </tr>
     </tbody>
@@ -32,6 +32,5 @@
     </pagination>
   </div>
 
-  <app-item-form></app-item-form>
+  <app-item-form [parent]="this"></app-item-form>
 </div>
-
