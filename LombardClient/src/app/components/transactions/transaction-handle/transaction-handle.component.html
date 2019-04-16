@@ -29,8 +29,8 @@
                     <label for="price">Price</label>
                     <input type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="transaction.price" step="0.01" class="form-control" id="price" placeholder="Enter Price">
                   </div>
-                  <button type="submit" class="btn btn-primary" (click)="sell()">Sell</button>
-                  <button type="submit" class="btn btn-primary" (click)="buy()">Buy</button>
+                  <button class="btn btn-primary" (click)="sell()">Sell</button>
+                  <button class="btn btn-primary" (click)="buy()">Buy</button>
             </form>
           </div>
     </div>
