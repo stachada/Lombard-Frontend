@@ -25,13 +25,9 @@ import { ProfitRaportComponent } from './components/profit-raport/profit-raport.
     NavComponent,
     CategoryListComponent,
     TurnoverRaportComponent,
-<<<<<<< HEAD
     ItemsListComponent,
-    ProfitRaportComponent
-=======
-    TransactionHandleComponent,
-    ItemsListComponent
->>>>>>> master
+    ProfitRaportComponent,
+    TransactionHandleComponent
   ],
   imports: [
     BrowserModule,
