@@ -1,3 +1,5 @@
+import { ItemCategory } from './ItemCategory';
+
 export interface Item {
     itemId: number;
     price: number;
