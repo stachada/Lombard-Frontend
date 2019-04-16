@@ -3,6 +3,7 @@ import { Transaction } from '../models/transaction';
 import { Injectable } from '@angular/core';
 import { ServiceBase } from './service-base';
 import { PaginatedResult } from '../models/pagination';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -19,6 +20,11 @@ export class TransacitonsService {
     public getTransactions(page?, itemsPerPage?): Observable<PaginatedResult<Transaction[]>> {
         let url = 'transactions/';
         return this.baseService.getPaged(url, page, itemsPerPage);
+    }
+
+    public getTransactionsToDate(page?, itemsPerPage?, toDate?: string): Observable<PaginatedResult<Transaction[]>> {
+        let url = 'transactions/todate/';
+        return this.baseService.getPagedToDate(url, page, itemsPerPage, toDate);
     }
 
     public deleteTransaction(id): Observable<any> {

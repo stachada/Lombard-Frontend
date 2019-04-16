@@ -5,10 +5,15 @@ import { TransactionListComponent } from './components/transactions/transaction-
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { TurnoverRaportComponent } from './components/turnover-raport/turnover-raport.component';
 import { TransactionHandleComponent } from './components/transactions/transaction-handle/transaction-handle.component';
+import { TransactionsToDateComponent } from './components/transactions/transactions-to-date/transactions-to-date.component';
+import { TransactionsComponent } from './components/transactions/transactions/transactions.component';
 
 const routes: Routes = [
-  { path: 'transaction', component: TransactionListComponent },
-  { path: 'transaction/item/:id', component: TransactionHandleComponent },
+  { path: 'transaction', component: TransactionsComponent, children: [
+    { path: 'todate', component: TransactionsToDateComponent },
+    { path: 'list', component: TransactionListComponent },
+    { path: 'item/:id', component: TransactionHandleComponent },
+  ] },
   { path: 'category-list', component: CategoryListComponent },
   { path: 'turnover', component: TurnoverRaportComponent },
   { path: 'items', component: ItemsListComponent },

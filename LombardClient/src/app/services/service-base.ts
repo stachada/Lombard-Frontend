@@ -46,6 +46,29 @@ export class ServiceBase {
             );
     }
 
+    getPagedToDate(relativeUrl: string, page?, itemsPerPage?, toDate?: string): Observable<PaginatedResult<any>> {
+        const paginatedResult: PaginatedResult<any> = new PaginatedResult<any>();
+
+        let params = new HttpParams();
+
+        if (page != null && itemsPerPage != null && toDate != null) {
+            params = params.append('pageNumber', page);
+            params = params.append('pageSize', itemsPerPage);
+            params = params.append('date', toDate.toString());
+        }
+
+        return this.http.get(this.BASE_URL + relativeUrl, { observe: 'response', params })
+            .pipe(
+                map(response => {
+                    paginatedResult.result = response.body;
+                    if (response.headers.get('Pagination') != null) {
+                        paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+                    }
+                    return paginatedResult;
+                })
+            );
+    }
+
     post(relativeUrl: string, object: any): Observable<any> {
         const url = this.BASE_URL + relativeUrl;
         return this.http.post(url, JSON.stringify(object), this.config);

@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>Transactions To Date (Boss Report)</h1>
+  <div>
+      <form>
+
+          <div class="form-group">
+            <label for="toDate">To Date</label>
+            <input [(ngModel)]="toDate" name="toDate" type="date" class="form-control" id="toDate" aria-describedby="To Date" >
+            <button type="submit" class="btn btn-primary" (click)="generateReport()">Generate Report</button>
+          </div>
+    
+          
+        </form> 
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">TransactionId</th>
+        <th scope="col">ItemId</th>
+        <th scope="col">CustomerId</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Transaction Type</th>
+        <th scope="col">Price</th>
+        <th scope="col">Transaction Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.transactionId }}</td>
+        <td>{{ transaction.itemId }}</td>
+        <td>{{ transaction.customerId }}</td>
+        <td>{{ transaction.quantity }}</td>
+        <td>{{ transaction.quantity < 0 ? "sales" : "purchase" }}</td>
+        <td>{{ transaction.price | currency }}</td>
+        <td>{{ transaction.transactionDate | date: "dd-MM-yyyy HH:mm" }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center">
+    <pagination
+      [boundaryLinks]="true"
+      [totalItems]="pagination.totalItems"
+      [itemsPerPage]="pagination.itemsPerPage"
+      [(ngModel)]="pagination.currentPage"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;"
+      nextText="&rsaquo;"
+      firstText="&laquo;"
+      lastText="&raquo;"
+    >
+    </pagination>
+  </div>
+</div>
