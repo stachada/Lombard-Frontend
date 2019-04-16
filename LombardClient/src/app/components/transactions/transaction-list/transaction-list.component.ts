@@ -51,12 +51,8 @@ export class TransactionListComponent implements OnInit {
       }));
   }
 
-  deleteTransaction(id: number) {
-    console.log(id);
-  }
-
   openDeleteTransactionModal(template: TemplateRef<any>, id: number) {
-    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
     this.idToDelete = id;
   }
 
@@ -68,7 +64,7 @@ export class TransactionListComponent implements OnInit {
         }));
     this.modalRef.hide();
   }
- 
+
   cancelDeleteTransaction(): void {
     this.modalRef.hide();
   }

@@ -22,4 +22,8 @@ export class ReportService {
     public getTurnover(StartDate: Date, EndDate: Date): Observable<number> {
         return this.baseService.get('/reports/turnover?StartDate=' + StartDate.toString() + '&EndDate=' + EndDate.toString());
     }
+
+    public getProfit(StartDate: Date, EndDate: Date): Observable<number> {
+        return this.baseService.get('/reports/profit?StartDate=' + StartDate.toString() + '&EndDate=' + EndDate.toString());
+    }
 }

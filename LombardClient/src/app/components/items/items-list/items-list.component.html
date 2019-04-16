@@ -19,7 +19,10 @@
         <td>{{item.quantity}}</td>
         <td>{{item.price | currency }}</td>
         <td>
-          <a class="btn btn-primary" [routerLink]="['/transaction/item/'] + item.itemId">Create Transaction</a>
+          <button class="btn btn-primary" [routerLink]="['/transaction/item/'] + item.itemId">Create
+            Transaction</button>
+          <button class="btn btn-danger" (click)="openDeleteItemModal(deleteTemplate,item.itemId)">Delete
+            Item</button>
         </td>
       </tr>
     </tbody>
@@ -31,6 +34,18 @@
       nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
     </pagination>
   </div>
+
+  <ng-template #deleteTemplate>
+    <div class="modal-body text-center">
+      <p>Are you sure you want to delete the item and all refering transactions ?</p>
+      <button type="button" class="btn btn-default" (click)="confirmDeleteItem()">
+        Yes
+      </button>
+      <button type="button" class="btn btn-primary" (click)="cancelDeleteItem()">
+        No
+      </button>
+    </div>
+  </ng-template>
 
   <app-item-form [parent]="this"></app-item-form>
 </div>

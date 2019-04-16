@@ -25,4 +25,9 @@ export class ItemsService {
     public saveNewItem(item: Item): Observable<any> {
         return this.baseService.post("items/", item);
     }
+
+    public deleteItem(itemId: number): Observable<any> {
+        let url = 'items/' + itemId.toString();
+        return this.baseService.delete(url);
+    }
 }
