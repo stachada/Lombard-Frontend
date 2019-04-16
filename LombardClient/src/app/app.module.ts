@@ -15,6 +15,7 @@ import { CategoryListComponent} from './components/category-list/category-list.c
 import { TurnoverRaportComponent } from './components/turnover-raport/turnover-raport.component';
 import { ItemsListComponent } from './components/items/items-list/items-list.component';
 import { ItemFormComponent } from './components/items/item-form/item-form.component';
+import { ProfitRaportComponent } from './components/profit-raport/profit-raport.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ItemFormComponent } from './components/items/item-form/item-form.compon
     NavComponent,
     CategoryListComponent,
     TurnoverRaportComponent,
-    ItemsListComponent
+    ItemsListComponent,
+    ProfitRaportComponent
   ],
   imports: [
     BrowserModule,
